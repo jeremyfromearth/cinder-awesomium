@@ -7,7 +7,7 @@ Cinder block for the Awesomium web browser library.
 Included is the Windows distribution of Awesomium 1.7.0 RC3, excluding their ```samples``` and ```wrappers``` folders. Please refer to the [Awesomium license](https://raw.github.com/paulhoux/Cinder-Awesomium/master/LICENSE.txt) for more information on licensing fees. Awesomium is NOT free software!
 
 
-#####Using this block with the latest "appRewrite" version of Cinder
+#####Using this block with the latest "release_v0.9.0" version of Cinder.
 Cinder's tool for setting up empty projects, TinderBox, has been revamped and now supports a neat system for the management of plug-ins called Cinder Blocks. CinderAwesomium supports this new feature. Simply add this repository as a submodule, as described below. It will then automatically be detected by TinderBox and you can add it to your projects.
 * Open a command window
 * Switch to the disk containing the Cinder root folder: ```d:```
