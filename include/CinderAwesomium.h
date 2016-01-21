@@ -23,7 +23,7 @@ class InvalidBufferException : public ci::Exception {
 #define mapKey(a, b) case ci::app::KeyEvent::KEY_##a: return Awesomium::KeyCodes::AK_##b;
 
 // Translates a Cinder virtual key code to an Awesomium key code
-int getWebKeyFromKeyEvent( ci::app::KeyEvent event )
+inline int getWebKeyFromKeyEvent( ci::app::KeyEvent event )
 {
     switch( event.getCode() )
     {
@@ -163,7 +163,7 @@ int getWebKeyFromKeyEvent( ci::app::KeyEvent event )
 
 // Conversion functions
 
-ci::Surface toSurface( Awesomium::BitmapSurface* surface )
+inline ci::Surface toSurface( Awesomium::BitmapSurface* surface )
 {
 	if( ! surface ) throw EmptyPointerException();
 	if( ! surface->buffer() ) throw InvalidBufferException();
@@ -184,7 +184,7 @@ inline ci::Surface toSurface( Awesomium::WebView* webview )
 	return toSurface( (Awesomium::BitmapSurface*) webview->surface() );
 }
 
-ci::gl::TextureRef toTexture( Awesomium::BitmapSurface* surface, ci::gl::Texture::Format format=ci::gl::Texture::Format() )
+inline ci::gl::TextureRef toTexture( Awesomium::BitmapSurface* surface, ci::gl::Texture::Format format=ci::gl::Texture::Format() )
 {
 	if( ! surface ) throw EmptyPointerException();
 	if( ! surface->buffer() ) throw InvalidBufferException();
@@ -217,7 +217,7 @@ inline bool isDirty( Awesomium::WebView* webview )
 	return surface->is_dirty();
 }
 
-Awesomium::WebKeyboardEvent toKeyEvent( ci::app::KeyEvent event, Awesomium::WebKeyboardEvent::Type type )
+inline Awesomium::WebKeyboardEvent toKeyEvent( ci::app::KeyEvent event, Awesomium::WebKeyboardEvent::Type type )
 {
 	Awesomium::WebKeyboardEvent evt;
 	evt.type = type;
@@ -247,7 +247,7 @@ Awesomium::WebKeyboardEvent toKeyEvent( ci::app::KeyEvent event, Awesomium::WebK
 	return evt;
 }
 
-Awesomium::WebKeyboardEvent toKeyChar( ci::app::KeyEvent event )
+inline Awesomium::WebKeyboardEvent toKeyChar( ci::app::KeyEvent event )
 {
 	Awesomium::WebKeyboardEvent evt;
 	evt.type = Awesomium::WebKeyboardEvent::kTypeChar;
